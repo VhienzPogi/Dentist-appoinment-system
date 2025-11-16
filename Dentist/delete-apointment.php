@@ -1,11 +1,19 @@
 <?php
 include 'db.php';
 
-$id = $_GET['id'];
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Invalid ID");
+}
 
-mysqli_query($conn, "DELETE FROM appointments WHERE id=$id");
+$id = intval($_GET['id']);
+
+$stmt = $conn->prepare("DELETE FROM appointments WHERE id=?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+$stmt->close();
+$conn->close();
 
 header("Location: admin.php");
 exit();
 ?>
-

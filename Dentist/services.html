@@ -19,7 +19,7 @@
       <a href="locations.html" >Locations</a>
       <a href="contact.html">Contact Us</a>
       <a href="index.php">Appointment</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="schedule.php">Schedule</a>
     </nav>
     <div class="contact-number">
       <span>📞 0917 303 8424</span>
@@ -67,23 +67,60 @@
     <p>&copy; 2025 Urban Smiles Dental Clinic. All rights reserved.</p>
   </footer>
   <script>
-    const navLinks = document.querySelectorAll('.nav a');
-    navLinks.forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
+  // Highlight active link
+  document.querySelectorAll('.nav a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active');
+    }
+  });
+
+  // Header shrink on scroll
+  const header = document.querySelector(".header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.style.padding = "8px 40px";
+      header.style.transition = "0.3s ease";
+    } else {
+      header.style.padding = "12px 60px";
+    }
+  });
+
+  // Smooth hover effect for cards
+  const cards = document.querySelectorAll(".service-card");
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "scale(1.05)";
+      card.style.transition = "0.3s ease";
+      card.style.boxShadow = "0 8px 18px rgba(0,0,0,0.2)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "scale(1)";
+      card.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+    });
+
+    // Click bounce animation
+    card.addEventListener("click", () => {
+      card.style.transform = "scale(0.97)";
+      setTimeout(() => card.style.transform = "scale(1.05)", 120);
+      setTimeout(() => card.style.transform = "scale(1)", 200);
+    });
+  });
+
+  // Fade-in animation on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
       }
     });
-    
-    const cards = document.querySelectorAll(".service-card");
-    cards.forEach(card => {
-      card.addEventListener("mouseenter", () => {
-        card.style.transform = "scale(1.05)";
-        card.style.transition = "0.3s ease";
-      });
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "scale(1)";
-      });
-    });
+  }, { threshold: 0.2 });
+
+  // Apply fade class to service cards
+  document.querySelectorAll(".service-card").forEach(card => {
+    card.classList.add("fade-card");
+    observer.observe(card);
+  });
     </script>
     
 </body>

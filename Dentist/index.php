@@ -7,26 +7,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- HEADER -->
   <header class="header">
     <div class="logo">
       <img src="Logo.jpeg" alt="Urban Smiles Logo" />
     </div>
+
     <nav class="nav">
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="clients.html">Clients</a>
-      <a href="locations.html" >Locations</a>
+      <a href="locations.html">Locations</a>
       <a href="contact.html">Contact Us</a>
       <a href="index.php" class="active">Appointment</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="schedule.php">Schedule</a>
     </nav>
+
     <div class="contact-number">
       <span>📞 0917 303 8424</span>
     </div>
   </header>
 
-  <!-- HERO SECTION / BACKGROUND -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="overlay"></div>
 
@@ -43,6 +46,7 @@
       </div>
 
       <form action="submit.php" method="POST" class="appointment-form" id="appointmentForm">
+
         <label for="name">Name *</label>
         <input type="text" id="name" name="name" required maxlength="255" />
 
@@ -81,7 +85,7 @@
       const today = new Date().toISOString().split("T")[0];
       dateInput.min = today;
 
-      // Validate form before submission
+      // Validate before submitting
       form.addEventListener("submit", (e) => {
         const name = form.name.value.trim();
         const age = form.age.value.trim();
@@ -95,7 +99,7 @@
           return;
         }
 
-        // Basic email check
+        // Email validation
         const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
         if (!email.match(emailPattern)) {
           e.preventDefault();
@@ -103,18 +107,17 @@
           return;
         }
 
-        // Contact number validation (11 digits)
+        // Contact number (11 digits)
         if (!/^[0-9]{11}$/.test(contact)) {
           e.preventDefault();
-          alert("⚠️ Please enter a valid 11-digit contact number (e.g., 09171234567).");
+          alert("⚠️ Enter a valid 11-digit contact number (e.g., 09171234567).");
           return;
         }
 
-        // Optional: show a brief loading state
         alert("✅ Your appointment request is being submitted...");
       });
 
-      // Fade-in effect for the form
+      // Fade-in form
       const formContainer = document.querySelector(".form-container");
       formContainer.style.opacity = 0;
       formContainer.style.transition = "opacity 1s ease";
@@ -123,5 +126,6 @@
       }, 200);
     });
   </script>
+
 </body>
 </html>

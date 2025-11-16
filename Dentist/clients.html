@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clients | Urban Smiles Dental Clinic</title>
+  <title>Our Team | Urban Smiles Dental Clinic</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,13 +13,13 @@
       <img src="Logo.jpeg" alt="Urban Smiles Logo" />
     </div>
     <nav class="nav">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="clients.html" class="active">Clients</a>
-        <a href="locations.html" >Locations</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="index.php">Appointment</a>
-        <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="clients.html" class="active">Clients</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="index.php">Appointment</a>
+      <a href="schedule.php">Schedule</a>
     </nav>
     <div class="contact-number">
       <span>📞 0917 303 8424</span>
@@ -27,37 +27,31 @@
   </header>
 
   <!-- HERO -->
-  <section class="services-hero" style="background: url('clients-banner.jpg') center/cover no-repeat;">
+  <section class="services-hero" style="background: url('Logo.jpeg') center/contain no-repeat;">
     <div class="hero-content">
-      <h1>Our Clients</h1>
-      <p>Welcome to the Beyond Family — thank you for trusting Urban Smiles with your smile.</p>
+      <h1>Our Team</h1>
+      <p>Meet the dedicated developers behind this Dentist Appointment System.</p>
     </div>
   </section>
 
-  <!-- CLIENT LOGOS -->
+  <!-- TEAM MEMBERS -->
   <section class="services-section" style="background: #fff;">
     <div class="service-card">
-      <img src="client1.jpg" alt="Client 1 Logo" />
-      <h2>Client 1</h2>
-      <p>Long-term partner who trusts Urban Smiles for premium dental care.</p>
+      <img src="vhienz.jpg" alt="Vhienz Ghenard Portulaso" />
+      <h2>Vhienz Ghenard Portulaso</h2>
+      <p>Main Programmer — Responsible for backend development and system functionality.</p>
     </div>
 
     <div class="service-card">
-      <img src="client2.jpg" alt="Client 2 Logo" />
-      <h2>Client 2</h2>
-      <p>Providing smiles that make a difference across every visit.</p>
+      <img src="isaiah.jpg" alt="Isaiah Gabriel Morales" />
+      <h2>Isaiah Gabriel Morales</h2>
+      <p>Documentation — Handles all document development, research, and system planning.</p>
     </div>
 
     <div class="service-card">
-      <img src="client3.jpg" alt="Client 3 Logo" />
-      <h2>Client 3</h2>
-      <p>Trusted by hundreds of professionals for world-class dental treatment.</p>
-    </div>
-
-    <div class="service-card">
-      <img src="client4.jpg" alt="Client 4 Logo" />
-      <h2>Client 4</h2>
-      <p>Our partnership ensures quality smiles and lasting relationships.</p>
+      <img src="freyja.jpg" alt="Freyja Mayuyo" />
+      <h2>Freyja Mayuyo</h2>
+      <p>Front-End Developer — Designs the user interface and improves user experience.</p>
     </div>
   </section>
 
@@ -86,5 +80,56 @@
   <footer class="footer">
     <p>&copy; 2025 Urban Smiles Dental Clinic. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Highlight Active Navigation Link
+    document.querySelectorAll(".nav a").forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+
+    // Fade-in effect for team cards + testimonials
+    const cards = document.querySelectorAll(".service-card, .vision, .mission");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // IMPORTANT: add "show" (matches .fade-card.show in CSS)
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.25 });
+
+    cards.forEach(card => {
+      card.classList.add("fade-card"); // start hidden
+      observer.observe(card);
+    });
+
+    // Hover effect for team cards
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        card.style.transform = "scale(1.05)";
+        card.style.transition = "0.3s ease";
+        card.style.boxShadow = "0 8px 18px rgba(0,0,0,0.15)";
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+        card.style.boxShadow = "0 4px 10px rgba(0,0,0,0.1)";
+      });
+    });
+
+    // Header shrink on scroll
+    const header = document.querySelector(".header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.style.padding = "8px 40px";
+        header.style.transition = "0.25s ease";
+      } else {
+        header.style.padding = "12px 60px";
+      }
+    });
+  </script>
 </body>
 </html>

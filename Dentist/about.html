@@ -16,10 +16,10 @@
       <a href="about.html" class="active">About</a>
       <a href="services.html">Services</a>
       <a href="clients.html">Clients</a>
-      <a href="locations.html" >Locations</a>
+      <a href="locations.html">Locations</a>
       <a href="contact.html">Contact Us</a>
       <a href="index.php">Appointment</a>
-      <a href="schedule.html">Schedule</a>
+      <a href="schedule.php">Schedule</a>
     </nav>
     <div class="contact-number">
       <span>📞 0917 303 8424</span>
@@ -27,8 +27,8 @@
   </header>
 
   <!-- ABOUT SECTION -->
-  <section class="about-section">
-    <div class="about-content">
+  <section class="about-section fade-sec">
+    <div class="about-content fade-sec">
       <h1>About Urban Smiles Dental Clinic</h1>
       <p>
         Founded in 2008, <strong>Urban Smiles Dental Clinic</strong> is one of the country’s
@@ -44,14 +44,14 @@
       </p>
     </div>
 
-    <div class="about-image">
+    <div class="about-image fade-sec">
       <img src="about.jpeg" alt="Urban Smiles Dental Clinic Interior" />
     </div>
   </section>
 
   <!-- VISION & MISSION -->
-  <section class="vision-mission">
-    <div class="vision">
+  <section class="vision-mission fade-sec">
+    <div class="vision fade-sec">
       <h2>Our Vision</h2>
       <p>
         To be the most trusted dental clinic in the Philippines, recognized for
@@ -59,7 +59,7 @@
       </p>
     </div>
 
-    <div class="mission">
+    <div class="mission fade-sec">
       <h2>Our Mission</h2>
       <p>
         To provide exceptional dental care by combining expertise, technology,
@@ -72,5 +72,39 @@
   <footer class="footer">
     <p>&copy; 2025 Urban Smiles Dental Clinic. All rights reserved.</p>
   </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ★ Highlight Active Nav Link
+    const navLinks = document.querySelectorAll(".nav a");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) link.classList.add("active");
+    });
+
+    // ★ Fade-In on Scroll
+    const fadeSections = document.querySelectorAll(".fade-sec");
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+
+    fadeSections.forEach(sec => fadeObserver.observe(sec));
+
+    // ★ Image Hover Zoom
+    const aboutImg = document.querySelector(".about-image img");
+    aboutImg.style.transition = "0.4s";
+
+    aboutImg.addEventListener("mouseenter", () => {
+      aboutImg.style.transform = "scale(1.05)";
+    });
+
+    aboutImg.addEventListener("mouseleave", () => {
+      aboutImg.style.transform = "scale(1)";
+    });
+  </script>
+
 </body>
 </html>
+
