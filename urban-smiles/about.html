@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Dental Legends</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="Logo.jpg" alt="Dental Legends Logo" />
+    </div>
+    <nav class="nav">
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html" class="active">About</a>
+      <a href="locations.html" >Locations</a>
+      <a href="index.php">Appointment</a>
+      <a href="schedule.php">Schedule</a>
+    </nav>
+    <div class="contact-number">
+      <span>📞 096 9341 3738</span>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section fade-sec">
+    <div class="about-content fade-sec">
+      <h1>About Dental Legends</h1>
+      <p>
+        Founded in 2025, <strong>Dental Legends</strong> is one of the country’s
+        leading dental care providers, offering world-class services in a modern and relaxing environment.
+      </p>
+      <p>
+        With strategically located branches established in key cities across Rosario, 
+        Dental Legends has become a trusted name in oral healthcare. Our core mission is to bring together an exceptional team of highly skilled, 
+        compassionate, and internationally trained dental professionals dedicated to delivering truly quality and uniquely affordable care to the communities we serve.
+      </p>
+      <p>
+        At Dental Legends, we believe that exceptional dental care goes beyond just technical expertise. 
+        It encompasses creating a comfortable, reassuring, and personalized patient experience.
+        We prioritize clear communication, ensuring every patient fully understands their treatment options and feels empowered in their oral health decisions.
+        Our clinics are equipped with state-of-the-art technology to ensure accurate diagnoses, minimally invasive procedures, and optimal results.
+      </p>
+    </div>
+
+    <div class="about-image fade-sec">
+      <img src="about.jpeg" alt="Urban Smiles Dental Clinic Interior" />
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section class="vision-mission fade-sec">
+    <div class="vision fade-sec">
+      <h2>Our Vision</h2>
+      <p>
+        To be the most reliablw dental clinic in the Philippines, recognized for
+        excellence in patient care and innovative dental solutions.
+      </p>
+    </div>
+
+    <div class="mission fade-sec">
+      <h2>Our Mission</h2>
+      <p>
+        To provide exceptional dental care by combining expertise, technology,
+        and compassion — ensuring every patient experiences comfort and confidence.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 Dental Legends. All rights reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ★ Highlight Active Nav Link
+    const navLinks = document.querySelectorAll(".nav a");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) link.classList.add("active");
+    });
+
+    // ★ Fade-In on Scroll
+    const fadeSections = document.querySelectorAll(".fade-sec");
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+
+    fadeSections.forEach(sec => fadeObserver.observe(sec));
+
+    // ★ Image Hover Zoom
+    const aboutImg = document.querySelector(".about-image img");
+    aboutImg.style.transition = "0.4s";
+
+    aboutImg.addEventListener("mouseenter", () => {
+      aboutImg.style.transform = "scale(1.05)";
+    });
+
+    aboutImg.addEventListener("mouseleave", () => {
+      aboutImg.style.transform = "scale(1)";
+    });
+  </script>
+
+</body>
+</html>
+

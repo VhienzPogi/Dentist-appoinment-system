@@ -1,0 +1,587 @@
+/* ============================
+   GLOBAL STYLES
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   HEADER
+============================ */
+.header {
+  width: 100%;
+  background-color: #f47c30; /* Urban Smiles Orange */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  height: 45px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  opacity: 0.85;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+
+.contact-number {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ============================
+   HERO (Appointment Page)
+============================ */
+.hero {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 124, 48, 0.1);
+}
+
+/* ============================
+   FORM CONTAINER
+============================ */
+.form-container {
+  position: relative;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90%;
+  z-index: 2;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-logo {
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.form-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #f47c30;
+}
+
+button {
+  background-color: #f47c30;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e36d20;
+}
+
+/* ============================
+   ABOUT PAGE
+============================ */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 80px 10%;
+  background-color: #fff;
+}
+
+.about-content {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+
+.about-content h1 {
+  font-size: 2rem;
+  color: #b88a44; /* Gold */
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vision-mission {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 10%;
+  background-color: #f9f9f9;
+  gap: 40px;
+}
+
+.vision, .mission {
+  flex: 1 1 45%;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.vision h2, .mission h2 {
+  color: #b88a44;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   SERVICES PAGE
+============================ */
+.services-hero {
+  position: relative;
+  background: url("Logo.jpg") center no-repeat;
+  background-size: contain;
+  color: white;
+  text-align: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+    LOCATIONS PAGE HERO
+============================ */
+.hero-locations {
+  /* **This is the line you need to change** */
+  background: url('Logo.jpg') center/cover no-repeat; 
+  background-size: contain;
+  color: white;
+  text-align: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Ensure the overlay is still there, but you might need to adjust the opacity */
+  /* If you want a different overlay color/opacity for the locations page: */
+  /* background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+      url('your-new-location-image.jpg'); 
+  background-size: cover; */
+}
+
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 80px 60px;
+  background: #f9f9f9;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fade-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.fade-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card img {
+  width: 240px;        /* FIXED WIDTH FOR ALL FACES */
+  height: 240px;       /* FIXED HEIGHT FOR ALL FACES */
+  border-radius: 12px;
+  object-fit: cover;   /* crop uniformly */
+  object-position: top center; /* shows the face nicely */
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+
+
+.service-card h2 {
+  color: #b88a44;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.service-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .form-container {
+    padding: 30px 25px;
+  }
+
+  .about-section {
+    flex-direction: column;
+    padding: 40px 5%;
+  }
+
+  .vision, .mission {
+    flex: 1 1 100%;
+  }
+
+  .services-section {
+    padding: 50px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}
+/* CONTACT PAGE */
+.contact-hero {
+  background: linear-gradient(rgba(244, 124, 48, 0.8), rgba(244, 124, 48, 0.8)),
+              url('clinic-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+  margin-top: 80px;
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-hero p {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding: 60px 10%;
+  background-color: #fff;
+}
+
+.contact-info, .contact-form-container {
+  flex: 1 1 400px;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2, .contact-form-container h2 {
+  color: #b88a44;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.contact-form button {
+  background-color: #f47c30;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #e36d20;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+  }
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-image img {
+  cursor: pointer;
+}
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ============================
+   SCHEDULE PAGE TABLE STYLES
+============================ */
+
+/* Container spacing */
+.schedule-container {
+  width: 85%;
+  margin: 60px auto;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+/* Page heading */
+.schedule-container h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.schedule-description {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 25px;
+  max-width: 900px;
+}
+
+/* Schedule Table */
+.schedule-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px; /* Space between rows */
+  font-size: 16px;
+}
+
+/* Table Head */
+.schedule-table th {
+  background: #f4f4f4;
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table Cells */
+.schedule-table td {
+  background: #fff;
+  padding: 16px 18px;
+  border-bottom: 1px solid #ececec;
+  vertical-align: middle;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+/* Bold Date Column */
+.schedule-table td:first-child {
+  font-weight: 600;
+}
+
+/* Hover Animation */
+.schedule-table tbody tr:hover td {
+  background: #eef7ff;
+  transition: 0.25s;
+}
+
+/* Fade Animation */
+.schedule-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.schedule-fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Banner styling for Schedule page */
+.schedule-banner {
+  background: url('schedule-header.jpg') center/cover no-repeat,
+              rgba(0,0,0,0.3);
+  background-blend-mode: darken;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  margin-top: 80px;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+/* Make table responsive */
+@media (max-width: 768px) {
+  .schedule-table th,
+  .schedule-table td {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .schedule-container {
+    width: 95%;
+  }
+}
